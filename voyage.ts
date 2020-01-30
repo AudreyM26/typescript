@@ -31,17 +31,20 @@ class SejourService {
         this.listeSejours.push(new Sejour('Portugal', 302));
     }
 
-    rechercher(destination: string): Sejour {
+    rechercher(destination: string): Sejour|void {
         for (const sej of this.listeSejours) {
             if(sej.getNom() === destination) {
                 return sej;
             }
         }
-        return new Sejour('',0);
+        return "Séjour non trouvé";
     }
 }
 
 const voyage = new SejourService().rechercher('Paris');
 console.log(voyage);
+
+const voyage2 = new SejourService().rechercher('Brésil');
+console.log(voyage2);
 
 
